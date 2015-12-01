@@ -2,7 +2,7 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "mail server with postfix,dovecot,mysql",
+    "name": "mail-server",
     "annotations": {
       "description": "Mail Server using Postfix/Dovecot and Mysql",
       "tags": "mail server, mysql,postfix,dovecot",
