@@ -5,14 +5,55 @@
     "name": "mail server with postfix,dovecot,mysql",
     "annotations": {
       "description": "Mail Server using Postfix/Dovecot and Mysql",
-      "tags": "instant-app,php,cakephp,mysql",
+      "tags": "mail server, mysql,postfix,dovecot",
       "iconClass": "icon-php"
     }
   },
   "labels": {
      "template": "mailserver_postfix_dovecot_mysql"
    },
-   "objects":[],
+   "objects":[
+	   {
+		   "apiVersion": "v1"
+	       "kind": "Pod"
+	       "metadata": {
+	       	 "name": "nginx"
+	       },
+	       "spec":{
+	  	     "containers":[
+				 {
+				 	"name": "nginx"
+				 	"image": "nginx"
+				 	"ports": {
+				 	"containerPort": 80
+				            }	  	   
+				 }
+	  	     ]
+	       }
+	   },
+	   {
+	         "kind": "Service",
+	         "apiVersion": "v1",
+	         "metadata": {
+	           "name": "cakephp-mysql-example",
+	           "annotations": {
+	             "description": "Exposes and load balances the application pods"
+	           }
+	         },
+	         "spec": {
+	           "ports": [
+	             {
+	               "name": "web",
+	               "port": 8080,
+	               "targetPort": 8080
+	             }
+	           ],
+	           "selector": {
+	             "name": "cakephp-mysql-example"
+	           }
+	         }
+	     }
+   ],
    "parameters": []
    
 }
