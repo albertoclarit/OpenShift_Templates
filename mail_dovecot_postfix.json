@@ -1,0 +1,16 @@
+{
+  "kind": "Template",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "mail server with postfix,dovecot,mysql",
+    "annotations": {
+      "description": "An example CakePHP application with a MySQL database",
+      "tags": "instant-app,php,cakephp,mysql",
+      "iconClass": "icon-php"
+    }
+  },
+  "labels": {
+     "template": "mailserver_postfix_dovecot_mysql"
+   },
+   "objects":[]
+}
